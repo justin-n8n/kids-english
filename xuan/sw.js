@@ -1,5 +1,5 @@
-/* 離線快取：版本 202610041318 */
-const CACHE='ek-xuan-202610041318';
+/* 離線快取：版本 202610041348 */
+const CACHE='ek-xuan-202610041348';
 const ASSETS=["./", "index.html", "data.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "../core/style.css", "../core/app.js", "../core/monsters.js", "../core/config.js"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('ek-xuan-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
